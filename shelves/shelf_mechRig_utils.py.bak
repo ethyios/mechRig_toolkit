@@ -34,7 +34,6 @@ from mechRig_toolkit.control_shapes import transform as ctl_trans
 from mechRig_toolkit.shelves import shelf_base
 from mechRig_toolkit.utils import utility
 from mechRig_toolkit.utils import week6
-import importlib
 
 cmds.selectPref(trackSelectionOrder=True)
 
@@ -59,10 +58,10 @@ def reload_shelf(shelf_name=SHELF_NAME):
     try:
         from imp import reload
         from mechRig_toolkit.shelves import shelf_mechRig_utils
-        from . import shelf_base
+        import shelf_base
 
-        importlib.reload(shelf_mechRig_utils)
-        importlib.reload(shelf_base)
+        reload(shelf_mechRig_utils)
+        reload(shelf_base)
 
         shelf_mechRig_utils.load(name=shelf_name)
         log.info("Successfully reloaded {} shelf".format(SHELF_NAME))

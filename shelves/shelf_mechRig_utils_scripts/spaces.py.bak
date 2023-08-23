@@ -482,7 +482,7 @@ def remove(spaceNode, space):
 
     # If space is string, get the int
     spaceInt = space
-    if isinstance(space, str):
+    if isinstance(space, basestring):
         enumNames = cmds.attributeQuery(SPACEATTR, node=spaceSwitch, listEnum=True)[0]
         enumNameList = enumNames.split(":")
         if space in enumNameList:
@@ -539,7 +539,7 @@ def remove(spaceNode, space):
 
 
 def snapAndKey(ctrl, space, key=True, keyPrevious=True):
-    if isinstance(space, str):
+    if isinstance(space, basestring):
         space = attribute.getEnumIndex(ctrl + "." + SPACEATTR, space)
 
     spaceNode = getSpaceNode(ctrl)

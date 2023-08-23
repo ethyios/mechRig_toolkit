@@ -35,7 +35,7 @@ def orientJoint(joints, aimAxis, upAxis, worldUpAxis):
         Logs warning if axis input is NOT xyz.
         Logs warning if operator input is NOT +-.
     """
-    for i in range(len(joints)):
+    for i in xrange(len(joints)):
         # Find unparent children
         children = cmds.listRelatives(joints[i], children=1, pa=1, type="transform")
         if children and (len(children) > 0):
@@ -99,7 +99,7 @@ def orientTo():
         if not cmds.objectType(jnt, isType="joint"):
             log.warning("Please select joints only.")
 
-    for i in range(1, len(sel)):
+    for i in xrange(1, len(sel)):
         # Find unparent children
         children = cmds.listRelatives(sel[i], children=1, type="transform")
         if children and (len(children) > 0):
